@@ -27,7 +27,9 @@ jobs = [
 @app.route('/')
 def home():
     """Render the homepage with the list of jobs."""
-    return render_template('home.html', jobs=jobs, companyname="SAFASWFATFA")
+    return render_template('home.html',
+                           jobs=jobs,
+                           companyname="dillip chabriaear")
 
 
 if __name__ == '__main__':
