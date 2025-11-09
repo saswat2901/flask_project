@@ -1,40 +1,34 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
+
+jobs = [
+    {
+        'id': 1,
+        'title': 'Data Analyst',
+        'location': 'Bengaluru, India',
+        'salary': 'Rs. 10,00,000'
+    },
+    {
+        'id': 2,
+        'title': 'Full Stack Developer',
+        'location': 'NOIDA, India',
+        'salary': 'Rs. 30,00,000'
+    },
+    {
+        'id': 3,
+        'title': 'Quality & Assurance',
+        'location': 'DELHI, India',
+        'salary': 'Rs. 12,00,000'
+    },
+]
 
 
 @app.route('/')
 def home():
-    return '''
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Flask Project</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                max-width: 800px;
-                margin: 50px auto;
-                padding: 20px;
-                text-align: center;
-            }
-            h1 {
-                color: #333;
-            }
-            p {
-                color: #666;
-                line-height: 1.6;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Welcome to Flask Project</h1>
-        <p>This is a basic Flask application running on Replit.</p>
-        <p>You can start building your web application here!</p>
-    </body>
-    </html>
-    '''
+    """Render the homepage with the list of jobs."""
+    return render_template('home.html', jobs=jobs, companyname="SAFASWFATFA")
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=8080, debug=True)
